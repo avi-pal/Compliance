@@ -1,0 +1,364 @@
+{
+  "info": {
+    "_postman_id": "6cd6059d-8a8c-41ed-8db6-bc51fa9f8a9d",
+    "name": "Compliance",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "26618542"
+  },
+  "item": [
+    {
+      "name": "health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/health",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "analyze",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{    \r\n    \"subject\": \"Meeting today\",\r\n    \"sender\": \"avi@hdfc.com\",\r\n    \"recipient\": \"ram@axis.com\",\r\n    \"body\": \"Please keep today’s meeting details strictly confidential and do not share outside this group\"\r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/analyze",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "analyze"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "batch",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Visualization Script",
+              "// Visualization Script",
+              "const template = `",
+              "<style>",
+              "  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 16px; color: #1f2937; }",
+              "  .meta { margin-bottom: 16px; color: #6b7280; font-size: 12px; }",
+              "  .cards { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }",
+              "  .card { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px 14px; min-width: 140px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }",
+              "  .card .label { font-size: 12px; color: #6b7280; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }",
+              "  .card .value { font-size: 22px; font-weight: 700; color: #111827; }",
+              "  .section-title { font-size: 14px; font-weight: 700; margin: 18px 0 10px; color: #111827; }",
+              "  table { width: 100%; border-collapse: collapse; table-layout: fixed; }",
+              "  th, td { border: 1px solid #e5e7eb; padding: 10px 8px; vertical-align: top; text-align: left; font-size: 12px; word-wrap: break-word; }",
+              "  th { background: #f3f4f6; position: sticky; top: 0; z-index: 1; }",
+              "  tr:nth-child(even) td { background: #fafafa; }",
+              "  .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }",
+              "  .verdict-pass { background: #dcfce7; color: #166534; }",
+              "  .verdict-review { background: #fef3c7; color: #92400e; }",
+              "  .verdict-fail { background: #fee2e2; color: #991b1b; }",
+              "  .verdict-other { background: #e5e7eb; color: #374151; }",
+              "  .priority-high { background: #fee2e2; color: #991b1b; }",
+              "  .priority-medium { background: #fef3c7; color: #92400e; }",
+              "  .priority-low { background: #dcfce7; color: #166534; }",
+              "  .priority-other { background: #e5e7eb; color: #374151; }",
+              "  .muted { color: #6b7280; }",
+              "  .prewrap { white-space: pre-wrap; }",
+              "  .error-box { background: #fff7ed; border: 1px solid #fdba74; color: #9a3412; border-radius: 8px; padding: 12px; }",
+              "  .small { font-size: 11px; }",
+              "</style>",
+              "",
+              "{{#if hasError}}",
+              "  <div class=\"error-box\">",
+              "    <strong>Unable to render batch dashboard.</strong>",
+              "    <div class=\"prewrap\">{{errorMessage}}</div>",
+              "  </div>",
+              "{{else}}",
+              "  <div class=\"meta\">Generated from the latest response payload.</div>",
+              "",
+              "  <div class=\"cards\">",
+              "    <div class=\"card\">",
+              "      <div class=\"label\">Total Results</div>",
+              "      <div class=\"value\">{{stats.totalResults}}</div>",
+              "    </div>",
+              "    {{#each stats.verdictCards}}",
+              "      <div class=\"card\">",
+              "        <div class=\"label\">Verdict: {{label}}</div>",
+              "        <div class=\"value\">{{value}}</div>",
+              "      </div>",
+              "    {{/each}}",
+              "    {{#each stats.priorityCards}}",
+              "      <div class=\"card\">",
+              "        <div class=\"label\">Priority: {{label}}</div>",
+              "        <div class=\"value\">{{value}}</div>",
+              "      </div>",
+              "    {{/each}}",
+              "  </div>",
+              "",
+              "  <div class=\"section-title\">Batch Results</div>",
+              "  <table>",
+              "    <thead>",
+              "      <tr>",
+              "        <th style=\"width: 13%;\">Recipient</th>",
+              "        <th style=\"width: 14%;\">Subject</th>",
+              "        <th style=\"width: 9%;\">Priority Level</th>",
+              "        <th style=\"width: 7%;\">Score</th>",
+              "        <th style=\"width: 9%;\">Verdict</th>",
+              "        <th style=\"width: 11%;\">Classification</th>",
+              "        <th style=\"width: 8%;\">Confidence</th>",
+              "        <th style=\"width: 13%;\">Evidence</th>",
+              "        <th style=\"width: 11%;\">Summary</th>",
+              "        <th style=\"width: 5%;\">Error</th>",
+              "      </tr>",
+              "    </thead>",
+              "    <tbody>",
+              "      {{#if rows.length}}",
+              "        {{#each rows}}",
+              "          <tr>",
+              "            <td>{{recipient}}</td>",
+              "            <td>{{subject}}</td>",
+              "            <td><span class=\"pill {{priorityClass}}\">{{priorityLevel}}</span></td>",
+              "            <td>{{priorityScore}}</td>",
+              "            <td><span class=\"pill {{verdictClass}}\">{{verdict}}</span></td>",
+              "            <td>{{classificationCategory}}</td>",
+              "            <td>{{confidence}}</td>",
+              "            <td class=\"prewrap small\">{{evidence}}</td>",
+              "            <td class=\"prewrap small\">{{summary}}</td>",
+              "            <td class=\"prewrap small\">{{error}}</td>",
+              "          </tr>",
+              "        {{/each}}",
+              "      {{else}}",
+              "        <tr>",
+              "          <td colspan=\"10\" class=\"muted\">No result rows were found in the response.</td>",
+              "        </tr>",
+              "      {{/if}}",
+              "    </tbody>",
+              "  </table>",
+              "{{/if}}",
+              "`;",
+              "",
+              "function createPayload() {",
+              "  const fallback = {",
+              "    hasError: false,",
+              "    errorMessage: '',",
+              "    stats: {",
+              "      totalResults: 0,",
+              "      verdictCards: [],",
+              "      priorityCards: []",
+              "    },",
+              "    rows: []",
+              "  };",
+              "",
+              "  function safeText(value) {",
+              "    if (value === null || value === undefined) return '—';",
+              "    if (typeof value === 'string') return value.trim() || '—';",
+              "    if (typeof value === 'number' || typeof value === 'boolean') return String(value);",
+              "    try { return JSON.stringify(value); } catch (e) { return '—'; }",
+              "  }",
+              "",
+              "  function compactLabel(value) {",
+              "    const text = safeText(value);",
+              "    if (text === '—') return 'Unknown';",
+              "    return text;",
+              "  }",
+              "",
+              "  function normalizeClass(prefix, value) {",
+              "    const text = safeText(value).toLowerCase();",
+              "    if (prefix === 'verdict') {",
+              "      if (text.includes('pass') || text.includes('allow') || text.includes('safe')) return 'verdict-pass';",
+              "      if (text.includes('review') || text.includes('warn') || text.includes('maybe')) return 'verdict-review';",
+              "      if (text.includes('fail') || text.includes('block') || text.includes('malicious') || text.includes('spam')) return 'verdict-fail';",
+              "      return 'verdict-other';",
+              "    }",
+              "    if (prefix === 'priority') {",
+              "      if (text.includes('high') || text.includes('critical')) return 'priority-high';",
+              "      if (text.includes('medium') || text.includes('moderate')) return 'priority-medium';",
+              "      if (text.includes('low')) return 'priority-low';",
+              "      return 'priority-other';",
+              "    }",
+              "    return '';",
+              "  }",
+              "",
+              "  try {",
+              "    const responseJson = pm.response.json();",
+              "    const results = Array.isArray(responseJson && responseJson.results) ? responseJson.results : [];",
+              "    const totalResults = typeof responseJson?.total === 'number' ? responseJson.total : results.length;",
+              "",
+              "    const verdictCounts = {};",
+              "    const priorityCounts = {};",
+              "",
+              "    const rows = results.map((item) => {",
+              "      const email = item && typeof item.email === 'object' ? item.email : {};",
+              "      const classifications = Array.isArray(item && item.classifications) ? item.classifications : [];",
+              "      const firstClassification = classifications[0] && typeof classifications[0] === 'object' ? classifications[0] : {};",
+              "",
+              "      const verdictLabel = compactLabel(item && item.verdict);",
+              "      const priorityLabel = compactLabel(item && item.priority_level);",
+              "",
+              "      verdictCounts[verdictLabel] = (verdictCounts[verdictLabel] || 0) + 1;",
+              "      priorityCounts[priorityLabel] = (priorityCounts[priorityLabel] || 0) + 1;",
+              "",
+              "      const evidenceRaw = firstClassification.evidence;",
+              "      let evidence = '—';",
+              "      if (Array.isArray(evidenceRaw)) {",
+              "        evidence = evidenceRaw.map((v) => safeText(v)).join(', ') || '—';",
+              "      } else {",
+              "        evidence = safeText(evidenceRaw);",
+              "      }",
+              "",
+              "      return {",
+              "        recipient: safeText(email.recipient),",
+              "        subject: safeText(email.subject),",
+              "        priorityLevel: priorityLabel,",
+              "        priorityClass: normalizeClass('priority', priorityLabel),",
+              "        priorityScore: safeText(item && item.priority_score),",
+              "        verdict: verdictLabel,",
+              "        verdictClass: normalizeClass('verdict', verdictLabel),",
+              "        classificationCategory: safeText(firstClassification.category),",
+              "        confidence: safeText(firstClassification.confidence),",
+              "        evidence,",
+              "        summary: safeText(item && item.summary),",
+              "        error: safeText(item && item.error)",
+              "      };",
+              "    });",
+              "",
+              "    fallback.stats.totalResults = totalResults;",
+              "    fallback.stats.verdictCards = Object.keys(verdictCounts).sort().map((key) => ({ label: key, value: verdictCounts[key] }));",
+              "    fallback.stats.priorityCards = Object.keys(priorityCounts).sort().map((key) => ({ label: key, value: priorityCounts[key] }));",
+              "    fallback.rows = rows;",
+              "",
+              "    return fallback;",
+              "  } catch (err) {",
+              "    return {",
+              "      hasError: true,",
+              "      errorMessage: err && err.message ? err.message : 'Response body is missing or is not valid JSON.',",
+              "      stats: fallback.stats,",
+              "      rows: []",
+              "    };",
+              "  }",
+              "}",
+              "",
+              "pm.visualizer.set(template, createPayload());"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"emails\":[\r\n    {    \r\n    \"subject\": \"Meeting today\",\r\n    \"sender\": \"avi@hdfc.com\",\r\n    \"recipient\": \"ram@axis.com\",\r\n    \"body\": \"this is the pin to bank vault : 2222\"\r\n    },\r\n    {    \r\n    \"subject\": \"Meeting today\",\r\n    \"sender\": \"avi@hdfc.com\",\r\n    \"recipient\": \"ram@axis.com\",\r\n    \"body\": \"this is the pin to bank vault : 2222\"\r\n    }\r\n]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/analyze/batch",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "analyze",
+            "batch"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "matrix",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/matrix",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "matrix"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "matrix",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"weights\":{\r\n    \"Secrecy\": 9.0,\r\n    \"Market Manipulation/Misconduct\": 3.0,\r\n    \"Market Bribery\": 2.5,\r\n    \"Change in Communication\": 1.5,\r\n    \"Complaints\": 1.5,\r\n    \"Employee Ethics\": 9.0\r\n}}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/matrix",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "matrix"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
