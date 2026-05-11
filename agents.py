@@ -6,15 +6,66 @@ Agent:
 import os
 import json
 import re
+import uuid
 from typing import TypedDict, Annotated
 from openai import AzureOpenAI
 from langgraph.graph import StateGraph, END
 import operator
 from dotenv import load_dotenv
+import chromadb
+from chromadb.config import Settings
 
 load_dotenv()
 
 AZURE_DEPLOYMENT = "aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8"
+
+# ── ChromaDB Vector Store Setup ───────────────────────────────────────────
+
+chroma_client = chromadb.PersistentClient(path="./chroma_db")
+
+non_compliant_collection = chroma_client.get_or_create_collection(
+    name="non_compliant",
+    metadata={"description": "Non-compliant emails with priority >= 6"}
+)
+
+human_approval_collection = chroma_client.get_or_create_collection(
+    name="human_approval",
+    metadata={"description": "Non-compliant emails with priority < 6 requiring human approval"}
+)
+
+def store_email(collection, email_id: str, email: dict, agent_output: dict, priority_score: float):
+    """Store email and its analysis results in a ChromaDB collection."""
+    document = f"Subject: {email['subject']}\nFrom: {email['sender']}\nTo: {email['recipient']}\nBody: {email['body']}"
+    metadata = {
+        "email_id": email_id,
+        "subject": email['subject'],
+        "sender": email['sender'],
+        "recipient": email['recipient'],
+        "priority_score": priority_score,
+        "priority_level": agent_output.get('priority_level', 'LOW'),
+        "verdict": agent_output.get('verdict', 'DISMISS'),
+        "summary": agent_output.get('summary', ''),
+        "recommended_action": agent_output.get('recommended_action', ''),
+        "classifications": json.dumps(agent_output.get('classifications', []))
+    }
+    collection.add(
+        ids=[email_id],
+        documents=[document],
+        metadatas=[metadata]
+    )
+
+def get_emails_from_collection(collection, limit: int = 100):
+    """Retrieve emails from a collection."""
+    results = collection.get(limit=limit, include=["metadatas", "documents"])
+    emails = []
+    for i, doc_id in enumerate(results['ids']):
+        email_data = {
+            "id": doc_id,
+            "document": results['documents'][i] if results['documents'] else None,
+            "metadata": results['metadatas'][i] if results['metadatas'] else None
+        }
+        emails.append(email_data)
+    return emails
 
 # ── Shared state flowing through the graph ─────────────────────────────────
 
@@ -173,6 +224,84 @@ graph = build_graph()
 
 # ── Public entry point ─────────────────────────────────────────────────────
 
+async def process_email_with_storage(email: dict, matrix: dict) -> dict:
+    """Process a single email and store based on compliance logic."""
+    result = await run_surveillance_pipeline(email, matrix)
+    
+    email_id = email.get("email_id", str(uuid.uuid4()))
+    agent_output = result.get("agent_output", {})
+    priority_score = result.get("priority_score", 0.0)
+    verdict = agent_output.get("verdict", "DISMISS")
+    
+    # Logic:
+    # - Compliant (DISMISS or no violations) -> Discard (don't store)
+    # - Non-compliant + priority_score < 5 -> human_approval collection
+    # - Non-compliant + priority_score >= 5 -> non_compliant collection
+
+    if verdict == "DISMISS" or priority_score == 0.0:
+        # Compliant email - discard (just return result, don't store)
+        return {**result, "stored_in": None}
+
+    if priority_score < 5.0:
+        # Non-compliant but lower priority - needs human approval
+        store_email(human_approval_collection, email_id, email, agent_output, priority_score)
+        return {**result, "stored_in": "human_approval"}
+    else:
+        # Non-compliant and high priority
+        store_email(non_compliant_collection, email_id, email, agent_output, priority_score)
+        return {**result, "stored_in": "non_compliant"}
+
+def get_non_compliant_emails(limit: int = 100):
+    """Get all non-compliant emails (priority >= 5)."""
+    return get_emails_from_collection(non_compliant_collection, limit)
+
+def get_human_approval_emails(limit: int = 100):
+    """Get all emails requiring human approval (priority < 5)."""
+    return get_emails_from_collection(human_approval_collection, limit)
+
+def delete_email_from_collection(collection, email_id: str) -> bool:
+    """Delete an email from a collection by its ID."""
+    try:
+        collection.delete(ids=[email_id])
+        return True
+    except Exception as e:
+        print(f"Error deleting email {email_id}: {e}")
+        return False
+
+def delete_non_compliant_email(email_id: str) -> bool:
+    """Delete an email from the non-compliant collection."""
+    return delete_email_from_collection(non_compliant_collection, email_id)
+
+def delete_human_approval_email(email_id: str) -> bool:
+    """Delete an email from the human approval collection."""
+    return delete_email_from_collection(human_approval_collection, email_id)
+
+def move_email_to_non_compliant(email_id: str) -> bool:
+    """Move an email from human approval to non-compliant collection."""
+    try:
+        # Get the email from human approval collection
+        results = human_approval_collection.get(ids=[email_id], include=["metadatas", "documents"])
+        if not results or not results['ids']:
+            return False
+
+        # Extract email data
+        document = results['documents'][0]
+        metadata = results['metadatas'][0]
+
+        # Add to non-compliant collection
+        non_compliant_collection.add(
+            ids=[email_id],
+            documents=[document],
+            metadatas=[metadata]
+        )
+
+        # Delete from human approval collection
+        human_approval_collection.delete(ids=[email_id])
+        return True
+    except Exception as e:
+        print(f"Error moving email {email_id}: {e}")
+        return False
+
 async def run_surveillance_pipeline(email: dict, matrix: dict) -> dict:
     initial_state: SurveillanceState = {
         "email": email,
@@ -191,6 +320,7 @@ async def run_surveillance_pipeline(email: dict, matrix: dict) -> dict:
 
     return {
         "email": {
+            "email_id": email["email_id"],
             "subject": email["subject"],
             "sender": email["sender"],
             "recipient": email["recipient"]

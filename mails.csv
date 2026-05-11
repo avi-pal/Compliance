@@ -1,0 +1,10 @@
+email_id,subject,sender,recipient,body
+1,Team Lunch Invite,alice@example.com,bob@example.com,"Hi Bob, we're organizing a team lunch this Friday. Please join us!"
+2,Project Update,charles@example.com,diana@example.com,The Q2 project report is attached. Please review by end of day.
+3,Confidential Strategy Plan,eve@example.com,frank@example.com,This document contains sensitive strategic information. Do not share externally.
+4,Market Analysis Alert,george@example.com,hannah@example.com,"FYI, recent trends indicate potential market shifts."
+5,Suspicious Trade Activities,ian@example.com,julia@example.com,We noticed unusual transactions that could indicate market manipulation. Needs review.
+6,Holiday Schedule,kate@example.com,leo@example.com,Attached is the holiday schedule for the upcoming year.
+7,Client Bribery Proposal,mike@example.com,nina@example.com,A client has suggested incentives for contract approval. Immediate discussion needed.
+8,System Downtime Notice,oliver@example.com,paula@example.com,Servers will be down for maintenance on Saturday.
+9,Change of Reporting Protocol,quinn@example.com,rachel@example.com,"From next week, all reports must be sent via encrypted email."
