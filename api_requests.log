@@ -18,3 +18,11 @@
 2026-05-11 18:43:41,621 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
 2026-05-11 18:43:41,624 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
 2026-05-11 18:43:41,625 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.004s
+2026-05-11 18:46:51,117 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-11 18:46:51,120 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.003s
+2026-05-11 18:46:53,552 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-11 18:46:53,554 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-11 18:46:53,554 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.002s
+2026-05-11 18:46:55,606 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-11 18:46:55,607 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-11 18:46:55,607 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.003s
