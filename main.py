@@ -55,7 +55,7 @@ class MatrixUpdate(BaseModel):
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "version": "1.0.0", "engine": "LangGraph Multi-Agent Compliance Solution"}
+    return {"status": "ok", "version": "1.0.0", "engine": "LangGraph Single-Agent Compliance Solution"}
 
 @app.get("/matrix")
 def get_matrix():
