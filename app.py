@@ -270,6 +270,10 @@ tab1, tab2, tab3, tab4 = st.tabs([
 with tab1:
     st.markdown("<h2>Upload Email CSV for Analysis</h2>", unsafe_allow_html=True)
     
+    # Initialize session state for upload tracking
+    if "upload_success" not in st.session_state:
+        st.session_state.upload_success = False
+    
     col1, col2 = st.columns([2, 1])
     
     with col1:
@@ -283,10 +287,11 @@ with tab1:
         uploaded_file = st.file_uploader(
             "Choose a CSV file",
             type=['csv'],
-            help="Upload a CSV file containing emails to be analyzed"
+            help="Upload a CSV file containing emails to be analyzed",
+            key="csv_uploader"
         )
         
-        if uploaded_file is not None:
+        if uploaded_file is not None and not st.session_state.upload_success:
             try:
                 df = pd.read_csv(uploaded_file)
                 st.success(f"✅ File loaded: {len(df)} emails found")
@@ -302,6 +307,7 @@ with tab1:
                         response = api_post("/analyze/csv", files=files)
                         
                         if response and response.get("status") == "ok":
+                            st.session_state.upload_success = True
                             st.markdown(f"""
                             <div class='success-message'>
                                 <h3>✅ Upload Successful!</h3>
@@ -312,10 +318,27 @@ with tab1:
                                 <p>Check the <strong>🚨 Non-Compliant Emails</strong> and <strong>👤 Human Approval</strong> tabs after a few minutes to see the results.</p>
                             </div>
                             """, unsafe_allow_html=True)
+                            st.rerun()
                         else:
                             st.error("Failed to upload file. Please try again.")
             except Exception as e:
                 st.error(f"Error reading CSV: {str(e)}")
+        
+        # Show success message if upload was successful
+        if st.session_state.upload_success:
+            st.markdown("""
+            <div class='success-message'>
+                <h3>✅ Upload Successful!</h3>
+                <p>Your CSV file has been uploaded and is being processed in the background.</p>
+                <br>
+                <p>⏱️ <strong>Next Steps:</strong></p>
+                <p>Check the <strong>🚨 Non-Compliant Emails</strong> and <strong>👤 Human Approval</strong> tabs after a few minutes to see the results.</p>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            if st.button("📤 Upload Another File", type="secondary", use_container_width=True):
+                st.session_state.upload_success = False
+                st.rerun()
     
     with col2:
         st.markdown("""
@@ -479,6 +502,10 @@ with tab3:
                                         st.markdown(f"- **{cls.get('category', 'Unknown')}** (Confidence: {cls.get('confidence', 0):.2f})")
                                         if cls.get('evidence'):
                                             st.caption(f"  Evidence: {cls['evidence']}")
+                                        if cls.get('lines'):
+                                            st.markdown("  **Extracted Lines:**")
+                                            for line in cls['lines']:
+                                                st.caption(f"    • {line}")
                                 except:
                                     st.text(metadata["classifications"])
 
@@ -567,6 +594,10 @@ with tab4:
                                         st.markdown(f"- **{cls.get('category', 'Unknown')}** (Confidence: {cls.get('confidence', 0):.2f})")
                                         if cls.get('evidence'):
                                             st.caption(f"  Evidence: {cls['evidence']}")
+                                        if cls.get('lines'):
+                                            st.markdown("  **Extracted Lines:**")
+                                            for line in cls['lines']:
+                                                st.caption(f"    • {line}")
                                 except:
                                     st.text(metadata["classifications"])
 

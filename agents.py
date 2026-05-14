@@ -117,9 +117,10 @@ async def compliance_agent(state: SurveillanceState) -> SurveillanceState:
     prompt = f"""You are a senior compliance agent at a bank. Perform a comprehensive
 analysis of the email below in a single pass. Your job is to:
 
-1. CLASSIFY: Identify any violation categories present
-2. SCORE: Compute a weighted priority score
-3. REVIEW: Generate a final verdict and recommended action
+1. CLASSIFY: Identify ALL violation categories present (an email may have multiple violations)
+2. EXTRACT: For each category, extract the specific lines from the email that contain the violation
+3. SCORE: Compute a weighted priority score based on all detected violations
+4. REVIEW: Generate a final verdict and recommended action
 
 VIOLATION CATEGORIES:
 {json.dumps(CATEGORIES, indent=2)}
@@ -138,6 +139,9 @@ VERDICT GUIDE:
 - MONITOR:  MEDIUM priority — flag for periodic review
 - DISMISS:  LOW priority — likely a false positive, no action needed
 
+IMPORTANT: An email may contain violations from MULTIPLE categories. Tag ALL categories that apply.
+For each category, extract the EXACT lines from the email body that contain the violation.
+
 EMAIL:
 Subject: {email['subject']}
 From: {email['sender']}
@@ -151,10 +155,11 @@ Return ONLY valid JSON (no markdown, no explanation) in this exact format:
     {{
       "category": "<one of the exact category names>",
       "confidence": <0.0 to 1.0>,
-      "evidence": "<exact quote or phrase from the email that triggered this flag>"
+      "evidence": "<exact quote or phrase from the email that triggered this flag>",
+      "lines": ["<exact line 1 from email body>", "<exact line 2 from email body>"]
     }}
   ],
-  "priority_score": <computed score = sum(weight × confidence)>,
+  "priority_score": <computed score = sum(weight × confidence for all categories)>,
   "priority_level": "<CRITICAL|HIGH|MEDIUM|LOW>",
   "verdict": "<ESCALATE|MONITOR|DISMISS>",
   "recommended_action": "<concrete next step for the compliance team>",
