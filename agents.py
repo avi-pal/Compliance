@@ -159,7 +159,7 @@ Return ONLY valid JSON (no markdown, no explanation) in this exact format:
       "lines": ["<exact line 1 from email body>", "<exact line 2 from email body>"]
     }}
   ],
-  "priority_score": <computed score = sum(weight × confidence for all categories)>,
+  "priority_score": <computed score = if multiple violations: sum(weight × confidence for all categories) / number of categories; if single violation: weight × confidence>,
   "priority_level": "<CRITICAL|HIGH|MEDIUM|LOW>",
   "verdict": "<ESCALATE|MONITOR|DISMISS>",
   "recommended_action": "<concrete next step for the compliance team>",

@@ -1,159 +1,575 @@
-2026-05-14 07:05:31,489 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:05:31,492 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.003s
-2026-05-14 07:05:33,204 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:05:33,206 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
-2026-05-14 07:05:35,674 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
-2026-05-14 07:05:35,681 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
-2026-05-14 07:05:35,681 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.008s
-2026-05-14 07:05:37,717 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
-2026-05-14 07:05:37,721 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
-2026-05-14 07:05:37,721 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.004s
-2026-05-14 07:05:58,988 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:05:58,990 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
-2026-05-14 07:06:00,716 | INFO | REQUEST | 127.0.0.1 | POST /analyze/csv
-2026-05-14 07:06:00,726 | INFO | CSV_UPLOAD | Received CSV upload: mails.csv
-2026-05-14 07:06:00,730 | INFO | CSV_UPLOAD | Queued background processing for mails.csv
-2026-05-14 07:06:00,734 | INFO | RESPONSE | 127.0.0.1 | POST /analyze/csv | Status: 200 | Duration: 0.019s
-2026-05-14 07:06:00,748 | INFO | CSV_BG | Starting background processing of 9 emails from CSV
-2026-05-14 07:06:08,079 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:06:08,099 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:06:08,100 | INFO | CSV_BG | Email 1 discarded (compliant)
-2026-05-14 07:06:13,234 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:06:13,236 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 5.137s
-2026-05-14 07:06:13,238 | INFO | CSV_BG | Email 2 discarded (compliant)
-2026-05-14 07:06:20,323 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:06:20,325 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
-2026-05-14 07:06:20,327 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
-2026-05-14 07:06:21,426 | INFO | CSV_BG | Email 3 stored in non_compliant | Score: 9.025
-2026-05-14 07:06:21,428 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 1.102s
-2026-05-14 07:06:27,021 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:06:27,024 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
-2026-05-14 07:06:27,025 | INFO | CSV_BG | Email 4 discarded (compliant)
-2026-05-14 07:06:27,026 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
-2026-05-14 07:06:27,027 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.003s
-2026-05-14 07:06:35,431 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:06:35,702 | INFO | CSV_BG | Email 5 stored in non_compliant | Score: 7.6
-2026-05-14 07:06:39,033 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:06:39,038 | INFO | CSV_BG | Email 6 discarded (compliant)
-2026-05-14 07:06:46,584 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:06:46,882 | INFO | CSV_BG | Email 7 stored in human_approval | Score: 2.375
-2026-05-14 07:06:50,302 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:06:50,304 | INFO | CSV_BG | Email 8 discarded (compliant)
-2026-05-14 07:06:55,784 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:06:56,032 | INFO | CSV_BG | Email 9 stored in human_approval | Score: 3.6
-2026-05-14 07:06:56,032 | INFO | CSV_BG | Completed processing 9/9 emails from CSV
-2026-05-14 07:07:35,997 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:07:35,998 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.001s
-2026-05-14 07:07:38,138 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:07:38,140 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.003s
-2026-05-14 07:07:40,218 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
-2026-05-14 07:07:40,220 | INFO | GET_NON_COMPLIANT | Retrieved 2 non-compliant emails (limit: 100)
-2026-05-14 07:07:40,221 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.003s
-2026-05-14 07:07:42,278 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
-2026-05-14 07:07:42,281 | INFO | GET_HUMAN_APPROVAL | Retrieved 2 human approval emails (limit: 100)
-2026-05-14 07:07:42,282 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.004s
-2026-05-14 07:12:30,539 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:12:30,541 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
-2026-05-14 07:12:32,739 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:12:32,742 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.003s
-2026-05-14 07:12:34,840 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
-2026-05-14 07:12:34,870 | INFO | GET_NON_COMPLIANT | Retrieved 2 non-compliant emails (limit: 100)
-2026-05-14 07:12:34,871 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.031s
-2026-05-14 07:12:36,958 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
-2026-05-14 07:12:36,971 | INFO | GET_HUMAN_APPROVAL | Retrieved 2 human approval emails (limit: 100)
-2026-05-14 07:12:36,971 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.013s
-2026-05-14 07:12:45,482 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:12:45,484 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
-2026-05-14 07:12:47,567 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
-2026-05-14 07:12:47,569 | INFO | GET_NON_COMPLIANT | Retrieved 2 non-compliant emails (limit: 100)
-2026-05-14 07:12:47,570 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.003s
-2026-05-14 07:12:49,635 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
-2026-05-14 07:12:49,637 | INFO | GET_HUMAN_APPROVAL | Retrieved 2 human approval emails (limit: 100)
-2026-05-14 07:12:49,637 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.003s
-2026-05-14 07:12:59,371 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:12:59,372 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.001s
-2026-05-14 07:13:22,511 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:13:22,513 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
-2026-05-14 07:13:24,661 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:13:24,662 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
-2026-05-14 07:13:26,744 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
-2026-05-14 07:13:26,749 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
-2026-05-14 07:13:26,750 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.006s
-2026-05-14 07:13:28,814 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
-2026-05-14 07:13:28,818 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
-2026-05-14 07:13:28,818 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.004s
-2026-05-14 07:13:53,595 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:13:53,597 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
-2026-05-14 07:13:55,674 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
-2026-05-14 07:13:55,676 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
-2026-05-14 07:13:55,677 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.003s
-2026-05-14 07:13:57,726 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
-2026-05-14 07:13:57,728 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
-2026-05-14 07:13:57,729 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.003s
-2026-05-14 07:14:17,595 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:14:17,597 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
-2026-05-14 07:14:19,679 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
-2026-05-14 07:14:19,681 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
-2026-05-14 07:14:19,682 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.003s
-2026-05-14 07:14:21,450 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:14:21,453 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.004s
-2026-05-14 07:14:23,523 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
-2026-05-14 07:14:23,525 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
-2026-05-14 07:14:23,526 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.003s
-2026-05-14 07:14:25,563 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
-2026-05-14 07:14:25,565 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
-2026-05-14 07:14:25,565 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.002s
-2026-05-14 07:14:29,453 | INFO | REQUEST | 127.0.0.1 | POST /analyze/csv
-2026-05-14 07:14:29,454 | INFO | CSV_UPLOAD | Received CSV upload: mails.csv
-2026-05-14 07:14:29,456 | INFO | CSV_UPLOAD | Queued background processing for mails.csv
-2026-05-14 07:14:29,456 | INFO | RESPONSE | 127.0.0.1 | POST /analyze/csv | Status: 200 | Duration: 0.003s
-2026-05-14 07:14:29,463 | INFO | CSV_BG | Starting background processing of 10 emails from CSV
-2026-05-14 07:14:33,633 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:14:33,751 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:14:33,753 | INFO | CSV_BG | Email 1 discarded (compliant)
-2026-05-14 07:14:33,755 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.004s
-2026-05-14 07:14:38,836 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:14:38,838 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
-2026-05-14 07:14:38,839 | INFO | CSV_BG | Email 2 discarded (compliant)
-2026-05-14 07:14:38,841 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
-2026-05-14 07:14:38,842 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.004s
-2026-05-14 07:14:46,161 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:14:46,163 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:14:46,164 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
-2026-05-14 07:14:46,166 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
-2026-05-14 07:14:46,542 | INFO | CSV_BG | Email 3 stored in non_compliant | Score: 9.025
-2026-05-14 07:14:46,544 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.382s
-2026-05-14 07:14:46,545 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.382s
-2026-05-14 07:14:51,536 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:14:51,539 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:14:51,540 | INFO | CSV_BG | Email 4 discarded (compliant)
-2026-05-14 07:14:51,541 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.003s
-2026-05-14 07:14:59,563 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:14:59,565 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
-2026-05-14 07:14:59,594 | INFO | GET_NON_COMPLIANT | Retrieved 1 non-compliant emails (limit: 100)
-2026-05-14 07:14:59,873 | INFO | CSV_BG | Email 5 stored in non_compliant | Score: 7.6
-2026-05-14 07:14:59,875 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.310s
-2026-05-14 07:15:05,235 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:15:05,239 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
-2026-05-14 07:15:05,240 | INFO | CSV_BG | Email 6 discarded (compliant)
-2026-05-14 07:15:05,241 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
-2026-05-14 07:15:05,243 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.004s
-2026-05-14 07:15:14,707 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:15:14,992 | INFO | CSV_BG | Email 7 stored in human_approval | Score: 2.375
-2026-05-14 07:15:18,537 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:15:18,538 | INFO | CSV_BG | Email 8 discarded (compliant)
-2026-05-14 07:15:26,349 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:15:26,629 | INFO | CSV_BG | Email 9 stored in human_approval | Score: 3.6
-2026-05-14 07:15:38,110 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
-2026-05-14 07:15:38,387 | INFO | CSV_BG | Email 10 stored in non_compliant | Score: 27.275
-2026-05-14 07:15:38,387 | INFO | CSV_BG | Completed processing 10/10 emails from CSV
-2026-05-14 07:15:45,975 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:15:45,977 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
-2026-05-14 07:15:48,142 | INFO | REQUEST | 127.0.0.1 | GET /matrix
-2026-05-14 07:15:48,144 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
-2026-05-14 07:15:50,268 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
-2026-05-14 07:15:50,270 | INFO | GET_NON_COMPLIANT | Retrieved 3 non-compliant emails (limit: 100)
-2026-05-14 07:15:50,271 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.003s
-2026-05-14 07:15:52,367 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
-2026-05-14 07:15:52,371 | INFO | GET_HUMAN_APPROVAL | Retrieved 2 human approval emails (limit: 100)
-2026-05-14 07:15:52,372 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.004s
+2026-05-15 07:02:26,591 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:02:26,594 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.004s
+2026-05-15 07:02:29,870 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 07:02:29,875 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-15 07:02:29,876 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.006s
+2026-05-15 07:02:31,916 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 07:02:31,920 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-15 07:02:31,922 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.007s
+2026-05-15 07:06:11,026 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:06:11,027 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-15 07:06:13,108 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 07:06:13,110 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-15 07:06:13,110 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.002s
+2026-05-15 07:06:15,088 | INFO | REQUEST | 127.0.0.1 | POST /analyze/csv
+2026-05-15 07:06:15,089 | INFO | CSV_UPLOAD | Received CSV upload: mails.csv
+2026-05-15 07:06:15,091 | INFO | CSV_UPLOAD | Queued background processing for mails.csv
+2026-05-15 07:06:15,091 | INFO | RESPONSE | 127.0.0.1 | POST /analyze/csv | Status: 200 | Duration: 0.003s
+2026-05-15 07:06:15,098 | INFO | CSV_BG | Starting background processing of 10 emails from CSV
+2026-05-15 07:06:19,872 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:06:20,000 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:06:20,001 | INFO | CSV_BG | Email 1 discarded (compliant)
+2026-05-15 07:06:20,004 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.005s
+2026-05-15 07:06:25,741 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:06:25,756 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 07:06:25,757 | INFO | CSV_BG | Email 2 discarded (compliant)
+2026-05-15 07:06:25,757 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-15 07:06:25,757 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.002s
+2026-05-15 07:06:33,320 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:06:33,321 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 07:06:33,321 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-15 07:06:34,435 | INFO | CSV_BG | Email 3 stored in non_compliant | Score: 9.025
+2026-05-15 07:06:34,437 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 1.116s
+2026-05-15 07:06:37,039 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:06:37,039 | INFO | CSV_BG | Email 4 discarded (compliant)
+2026-05-15 07:06:45,568 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:06:45,570 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:06:45,851 | INFO | CSV_BG | Email 5 stored in non_compliant | Score: 7.6
+2026-05-15 07:06:45,855 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.285s
+2026-05-15 07:06:48,691 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:06:48,694 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 07:06:48,695 | INFO | CSV_BG | Email 6 discarded (compliant)
+2026-05-15 07:06:48,698 | INFO | GET_NON_COMPLIANT | Retrieved 2 non-compliant emails (limit: 100)
+2026-05-15 07:06:48,700 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.006s
+2026-05-15 07:07:04,875 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:07:04,877 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 07:07:04,877 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:07:04,880 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-15 07:07:05,225 | INFO | CSV_BG | Email 7 stored in human_approval | Score: 2.375
+2026-05-15 07:07:05,228 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.350s
+2026-05-15 07:07:05,228 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.350s
+2026-05-15 07:07:09,582 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:07:09,587 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:07:09,587 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:07:09,592 | INFO | CSV_BG | Email 8 discarded (compliant)
+2026-05-15 07:07:09,596 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.009s
+2026-05-15 07:07:09,597 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.011s
+2026-05-15 07:07:25,622 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:07:25,622 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 07:07:25,622 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:07:25,629 | INFO | GET_NON_COMPLIANT | Retrieved 2 non-compliant emails (limit: 10)
+2026-05-15 07:07:25,909 | INFO | CSV_BG | Email 9 stored in human_approval | Score: 3.6
+2026-05-15 07:07:25,912 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.290s
+2026-05-15 07:07:25,913 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.291s
+2026-05-15 07:07:35,224 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:07:35,226 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 07:07:35,253 | INFO | GET_NON_COMPLIANT | Retrieved 2 non-compliant emails (limit: 100)
+2026-05-15 07:07:35,631 | INFO | CSV_BG | Email 10 stored in non_compliant | Score: 22.85
+2026-05-15 07:07:35,631 | INFO | CSV_BG | Completed processing 10/10 emails from CSV
+2026-05-15 07:07:35,632 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.406s
+2026-05-15 07:07:37,683 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 07:07:37,695 | INFO | GET_HUMAN_APPROVAL | Retrieved 2 human approval emails (limit: 100)
+2026-05-15 07:07:37,711 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.028s
+2026-05-15 07:07:50,167 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:07:50,171 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.003s
+2026-05-15 07:07:52,372 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:07:52,374 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-15 07:07:54,449 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 07:07:54,449 | INFO | GET_NON_COMPLIANT | Retrieved 3 non-compliant emails (limit: 100)
+2026-05-15 07:07:54,449 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.000s
+2026-05-15 07:07:56,512 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 07:07:56,515 | INFO | GET_HUMAN_APPROVAL | Retrieved 2 human approval emails (limit: 100)
+2026-05-15 07:07:56,516 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.004s
+2026-05-15 07:23:15,206 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:23:15,209 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.003s
+2026-05-15 07:23:17,636 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 07:23:17,644 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-15 07:23:17,655 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.019s
+2026-05-15 07:23:19,821 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 07:23:19,823 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-15 07:23:19,823 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.002s
+2026-05-15 07:26:52,471 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:26:52,473 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-15 07:26:54,560 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 07:26:54,563 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-15 07:26:54,563 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.003s
+2026-05-15 07:26:55,903 | INFO | REQUEST | 127.0.0.1 | POST /analyze/csv
+2026-05-15 07:26:55,905 | INFO | CSV_UPLOAD | Received CSV upload: mails.csv
+2026-05-15 07:26:55,906 | INFO | CSV_UPLOAD | Queued background processing for mails.csv
+2026-05-15 07:26:55,907 | INFO | RESPONSE | 127.0.0.1 | POST /analyze/csv | Status: 200 | Duration: 0.004s
+2026-05-15 07:26:55,920 | INFO | CSV_BG | Starting background processing of 10 emails from CSV
+2026-05-15 07:27:54,581 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:27:54,708 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 07:27:54,709 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:27:54,711 | INFO | CSV_BG | Email 1 discarded (compliant)
+2026-05-15 07:27:54,711 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-15 07:27:54,713 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.004s
+2026-05-15 07:27:54,714 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.006s
+2026-05-15 07:27:57,022 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:27:57,024 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 07:27:57,025 | INFO | CSV_BG | Email 2 discarded (compliant)
+2026-05-15 07:27:57,026 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-15 07:27:57,028 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.003s
+2026-05-15 07:28:00,890 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:28:01,324 | INFO | CSV_BG | Email 3 stored in non_compliant | Score: 9.025
+2026-05-15 07:28:04,364 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:28:04,364 | INFO | CSV_BG | Email 4 discarded (compliant)
+2026-05-15 07:28:08,096 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:28:08,391 | INFO | CSV_BG | Email 5 stored in non_compliant | Score: 7.6
+2026-05-15 07:28:10,277 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:28:10,279 | INFO | CSV_BG | Email 6 discarded (compliant)
+2026-05-15 07:28:16,876 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:28:17,201 | INFO | CSV_BG | Email 7 stored in human_approval | Score: 2.375
+2026-05-15 07:28:20,028 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:28:20,030 | INFO | CSV_BG | Email 8 discarded (compliant)
+2026-05-15 07:28:25,040 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:28:25,354 | INFO | CSV_BG | Email 9 stored in human_approval | Score: 3.6
+2026-05-15 07:28:32,595 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:28:32,905 | INFO | CSV_BG | Email 10 stored in non_compliant | Score: 20.275
+2026-05-15 07:28:32,905 | INFO | CSV_BG | Completed processing 10/10 emails from CSV
+2026-05-15 07:28:42,011 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:28:42,013 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.003s
+2026-05-15 07:28:44,218 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:28:44,219 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.001s
+2026-05-15 07:28:46,309 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 07:28:46,312 | INFO | GET_NON_COMPLIANT | Retrieved 3 non-compliant emails (limit: 100)
+2026-05-15 07:28:46,312 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.003s
+2026-05-15 07:28:48,420 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 07:28:48,422 | INFO | GET_HUMAN_APPROVAL | Retrieved 2 human approval emails (limit: 100)
+2026-05-15 07:28:48,423 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.004s
+2026-05-15 07:38:25,928 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:38:25,930 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-15 07:38:28,017 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 07:38:28,021 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-15 07:38:28,022 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.005s
+2026-05-15 07:38:30,091 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 07:38:30,095 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-15 07:38:30,095 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.004s
+2026-05-15 07:38:33,535 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:38:33,540 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.005s
+2026-05-15 07:38:35,655 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 07:38:35,656 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-15 07:38:35,657 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.003s
+2026-05-15 07:38:37,044 | INFO | REQUEST | 127.0.0.1 | POST /analyze/csv
+2026-05-15 07:38:37,046 | INFO | CSV_UPLOAD | Received CSV upload: mails.csv
+2026-05-15 07:38:37,047 | INFO | CSV_UPLOAD | Queued background processing for mails.csv
+2026-05-15 07:38:37,047 | INFO | RESPONSE | 127.0.0.1 | POST /analyze/csv | Status: 200 | Duration: 0.003s
+2026-05-15 07:38:37,059 | INFO | CSV_BG | Starting background processing of 10 emails from CSV
+2026-05-15 07:38:40,027 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:38:40,030 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:38:40,030 | INFO | CSV_BG | Email 1 discarded (compliant)
+2026-05-15 07:38:40,030 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.000s
+2026-05-15 07:38:43,588 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:38:43,588 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 07:38:43,591 | INFO | CSV_BG | Email 2 discarded (compliant)
+2026-05-15 07:38:43,591 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-15 07:38:43,591 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.003s
+2026-05-15 07:38:48,867 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:38:48,869 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 07:38:48,871 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-15 07:38:49,260 | INFO | CSV_BG | Email 3 stored in non_compliant | Score: 9.025
+2026-05-15 07:38:49,260 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.392s
+2026-05-15 07:38:51,954 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:38:51,957 | INFO | CSV_BG | Email 4 discarded (compliant)
+2026-05-15 07:38:58,491 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:38:58,733 | INFO | CSV_BG | Email 5 stored in non_compliant | Score: 7.6
+2026-05-15 07:39:01,189 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:39:01,191 | INFO | CSV_BG | Email 6 discarded (compliant)
+2026-05-15 07:39:05,879 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:39:06,216 | INFO | CSV_BG | Email 7 stored in human_approval | Score: 2.375
+2026-05-15 07:39:08,991 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:39:08,995 | INFO | CSV_BG | Email 8 discarded (compliant)
+2026-05-15 07:39:14,044 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:39:14,331 | INFO | CSV_BG | Email 9 stored in human_approval | Score: 3.6
+2026-05-15 07:39:22,225 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 07:39:22,508 | INFO | CSV_BG | Email 10 stored in non_compliant | Score: 7.88
+2026-05-15 07:39:22,508 | INFO | CSV_BG | Completed processing 10/10 emails from CSV
+2026-05-15 07:39:51,061 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:39:51,063 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-15 07:39:53,216 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 07:39:53,218 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-15 07:39:55,323 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 07:39:55,326 | INFO | GET_NON_COMPLIANT | Retrieved 3 non-compliant emails (limit: 100)
+2026-05-15 07:39:55,328 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.005s
+2026-05-15 07:39:57,464 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 07:39:57,466 | INFO | GET_HUMAN_APPROVAL | Retrieved 2 human approval emails (limit: 100)
+2026-05-15 07:39:57,467 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.004s
+2026-05-15 09:36:01,267 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:36:01,268 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.001s
+2026-05-15 09:36:02,369 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:36:02,370 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.001s
+2026-05-15 09:36:04,441 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 09:36:04,448 | INFO | GET_NON_COMPLIANT | Retrieved 3 non-compliant emails (limit: 100)
+2026-05-15 09:36:04,448 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.007s
+2026-05-15 09:36:06,507 | INFO | REQUEST | 127.0.0.1 | DELETE /emails/non-compliant/5
+2026-05-15 09:36:06,578 | INFO | DELETE_NON_COMPLIANT | Email 5 deleted (action taken)
+2026-05-15 09:36:06,579 | INFO | RESPONSE | 127.0.0.1 | DELETE /emails/non-compliant/5 | Status: 200 | Duration: 0.072s
+2026-05-15 09:36:08,748 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:36:08,751 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.003s
+2026-05-15 09:36:10,812 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 09:36:10,814 | INFO | GET_NON_COMPLIANT | Retrieved 2 non-compliant emails (limit: 100)
+2026-05-15 09:36:10,815 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.003s
+2026-05-15 09:36:11,285 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:36:11,292 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.007s
+2026-05-15 09:36:12,468 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:36:12,470 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-15 09:36:14,518 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 09:36:14,520 | INFO | GET_NON_COMPLIANT | Retrieved 2 non-compliant emails (limit: 100)
+2026-05-15 09:36:14,520 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.002s
+2026-05-15 09:36:16,609 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 09:36:16,609 | INFO | GET_HUMAN_APPROVAL | Retrieved 2 human approval emails (limit: 100)
+2026-05-15 09:36:16,609 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.000s
+2026-05-15 09:36:18,671 | INFO | REQUEST | 127.0.0.1 | DELETE /emails/human-approval/9
+2026-05-15 09:36:18,732 | INFO | DELETE_HUMAN_APPROVAL | Email 9 deleted (marked as compliant)
+2026-05-15 09:36:18,733 | INFO | RESPONSE | 127.0.0.1 | DELETE /emails/human-approval/9 | Status: 200 | Duration: 0.062s
+2026-05-15 09:36:20,841 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:36:20,842 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-15 09:36:22,919 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 09:36:22,923 | INFO | GET_NON_COMPLIANT | Retrieved 2 non-compliant emails (limit: 100)
+2026-05-15 09:36:22,923 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.003s
+2026-05-15 09:36:24,999 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 09:36:25,001 | INFO | GET_HUMAN_APPROVAL | Retrieved 1 human approval emails (limit: 100)
+2026-05-15 09:36:25,001 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.002s
+2026-05-15 09:36:48,438 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:36:48,441 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.003s
+2026-05-15 09:36:50,562 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 09:36:50,562 | INFO | GET_NON_COMPLIANT | Retrieved 2 non-compliant emails (limit: 100)
+2026-05-15 09:36:50,567 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.004s
+2026-05-15 09:36:52,645 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 09:36:52,648 | INFO | GET_HUMAN_APPROVAL | Retrieved 1 human approval emails (limit: 100)
+2026-05-15 09:36:52,648 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.003s
+2026-05-15 09:36:54,122 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:36:54,124 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-15 09:36:55,252 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:36:55,275 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.023s
+2026-05-15 09:36:57,548 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 09:36:57,548 | INFO | GET_NON_COMPLIANT | Retrieved 2 non-compliant emails (limit: 100)
+2026-05-15 09:36:57,548 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.000s
+2026-05-15 09:36:59,625 | INFO | REQUEST | 127.0.0.1 | DELETE /emails/non-compliant/10
+2026-05-15 09:36:59,682 | INFO | DELETE_NON_COMPLIANT | Email 10 deleted (action taken)
+2026-05-15 09:36:59,683 | INFO | RESPONSE | 127.0.0.1 | DELETE /emails/non-compliant/10 | Status: 200 | Duration: 0.058s
+2026-05-15 09:37:01,809 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:37:01,811 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-15 09:37:03,875 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 09:37:03,876 | INFO | GET_NON_COMPLIANT | Retrieved 1 non-compliant emails (limit: 100)
+2026-05-15 09:37:03,876 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.002s
+2026-05-15 09:37:05,940 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 09:37:05,942 | INFO | GET_HUMAN_APPROVAL | Retrieved 1 human approval emails (limit: 100)
+2026-05-15 09:37:05,944 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.003s
+2026-05-15 09:37:28,935 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:37:28,937 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-15 09:37:31,033 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 09:37:31,036 | INFO | GET_NON_COMPLIANT | Retrieved 1 non-compliant emails (limit: 100)
+2026-05-15 09:37:31,037 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.004s
+2026-05-15 09:37:33,078 | INFO | REQUEST | 127.0.0.1 | DELETE /emails/non-compliant/3
+2026-05-15 09:37:33,128 | INFO | DELETE_NON_COMPLIANT | Email 3 deleted (action taken)
+2026-05-15 09:37:33,129 | INFO | RESPONSE | 127.0.0.1 | DELETE /emails/non-compliant/3 | Status: 200 | Duration: 0.051s
+2026-05-15 09:37:35,269 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:37:35,271 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-15 09:37:36,869 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:37:36,878 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.009s
+2026-05-15 09:37:38,735 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:37:38,737 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.001s
+2026-05-15 09:37:40,843 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 09:37:40,845 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-15 09:37:40,845 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.002s
+2026-05-15 09:37:42,890 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 09:37:42,893 | INFO | GET_HUMAN_APPROVAL | Retrieved 1 human approval emails (limit: 100)
+2026-05-15 09:37:42,893 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.003s
+2026-05-15 09:37:47,844 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:37:47,846 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-15 09:37:49,954 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 09:37:49,956 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-15 09:37:49,957 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.003s
+2026-05-15 09:37:52,002 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 09:37:52,004 | INFO | GET_HUMAN_APPROVAL | Retrieved 1 human approval emails (limit: 100)
+2026-05-15 09:37:52,006 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.004s
+2026-05-15 09:37:54,091 | INFO | REQUEST | 127.0.0.1 | DELETE /emails/human-approval/7
+2026-05-15 09:37:54,142 | INFO | DELETE_HUMAN_APPROVAL | Email 7 deleted (marked as compliant)
+2026-05-15 09:37:54,143 | INFO | RESPONSE | 127.0.0.1 | DELETE /emails/human-approval/7 | Status: 200 | Duration: 0.052s
+2026-05-15 09:37:56,249 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:37:56,249 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.000s
+2026-05-15 09:37:58,327 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 09:37:58,327 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-15 09:37:58,327 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.000s
+2026-05-15 09:38:00,344 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 09:38:00,346 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-15 09:38:00,347 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.003s
+2026-05-15 09:48:27,719 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:48:27,719 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.000s
+2026-05-15 09:48:29,798 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 09:48:29,803 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-15 09:48:29,803 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.005s
+2026-05-15 09:48:31,863 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 09:48:31,865 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-15 09:48:31,865 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.002s
+2026-05-15 09:48:47,643 | INFO | REQUEST | 127.0.0.1 | POST /analyze/csv
+2026-05-15 09:48:47,645 | INFO | CSV_UPLOAD | Received CSV upload: mails.csv
+2026-05-15 09:48:47,645 | INFO | CSV_UPLOAD | Queued background processing for mails.csv
+2026-05-15 09:48:47,646 | INFO | RESPONSE | 127.0.0.1 | POST /analyze/csv | Status: 200 | Duration: 0.002s
+2026-05-15 09:48:47,648 | INFO | CSV_BG | Starting background processing of 15 emails from CSV
+2026-05-15 09:48:54,552 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 09:48:54,552 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:48:54,852 | INFO | CSV_BG | Email 1 stored in non_compliant | Score: 8.58
+2026-05-15 09:48:54,854 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.301s
+2026-05-15 09:49:00,925 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 09:49:00,927 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 09:49:00,928 | INFO | CSV_BG | Email 2 discarded (compliant)
+2026-05-15 09:49:00,929 | INFO | GET_NON_COMPLIANT | Retrieved 1 non-compliant emails (limit: 100)
+2026-05-15 09:49:00,930 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.003s
+2026-05-15 09:49:06,671 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 09:49:06,673 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 09:49:06,717 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-15 09:49:06,987 | INFO | CSV_BG | Email 3 stored in non_compliant | Score: 7.83
+2026-05-15 09:49:06,989 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.316s
+2026-05-15 09:49:14,550 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 09:49:14,808 | INFO | CSV_BG | Email 4 stored in non_compliant | Score: 8.56
+2026-05-15 09:49:22,400 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 09:49:22,686 | INFO | CSV_BG | Email 5 stored in non_compliant | Score: 7.875
+2026-05-15 09:49:34,878 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 09:49:35,136 | INFO | CSV_BG | Email 6 stored in non_compliant | Score: 7.6
+2026-05-15 09:49:44,932 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 09:49:45,200 | INFO | CSV_BG | Email 7 stored in non_compliant | Score: 7.81
+2026-05-15 09:49:52,428 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 09:49:52,728 | INFO | CSV_BG | Email 8 stored in non_compliant | Score: 5.875
+2026-05-15 09:50:00,384 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 09:50:00,678 | INFO | CSV_BG | Email 9 stored in non_compliant | Score: 6.95
+2026-05-15 09:50:09,647 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 09:50:09,942 | INFO | CSV_BG | Email 10 stored in non_compliant | Score: 7.95
+2026-05-15 09:50:19,295 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 09:50:19,588 | INFO | CSV_BG | Email 11 stored in non_compliant | Score: 7.92
+2026-05-15 09:50:26,414 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 09:50:26,684 | INFO | CSV_BG | Email 12 stored in non_compliant | Score: 6.93
+2026-05-15 09:50:36,765 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 09:50:37,048 | INFO | CSV_BG | Email 13 stored in non_compliant | Score: 7.81
+2026-05-15 09:50:46,021 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 09:50:46,304 | INFO | CSV_BG | Email 14 stored in non_compliant | Score: 7.81
+2026-05-15 09:50:57,616 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-15 09:50:57,928 | INFO | CSV_BG | Email 15 stored in non_compliant | Score: 7.93
+2026-05-15 09:50:57,928 | INFO | CSV_BG | Completed processing 15/15 emails from CSV
+2026-05-15 09:51:05,438 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:51:05,440 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-15 09:51:07,688 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:51:07,688 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.000s
+2026-05-15 09:51:09,785 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 09:51:09,787 | INFO | GET_NON_COMPLIANT | Retrieved 14 non-compliant emails (limit: 100)
+2026-05-15 09:51:09,789 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.004s
+2026-05-15 09:51:12,023 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 09:51:12,025 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-15 09:51:12,026 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.003s
+2026-05-15 09:52:06,583 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:52:06,585 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.003s
+2026-05-15 09:52:07,923 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:52:07,925 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-15 09:52:10,021 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 09:52:10,024 | INFO | GET_NON_COMPLIANT | Retrieved 14 non-compliant emails (limit: 100)
+2026-05-15 09:52:10,025 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.004s
+2026-05-15 09:52:12,243 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 09:52:12,246 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-15 09:52:12,247 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.004s
+2026-05-15 09:52:28,064 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:52:28,066 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-15 09:52:30,205 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 09:52:30,208 | INFO | GET_NON_COMPLIANT | Retrieved 14 non-compliant emails (limit: 100)
+2026-05-15 09:52:30,210 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.004s
+2026-05-15 09:52:32,484 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-15 09:52:32,486 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-15 09:52:34,551 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-15 09:52:34,555 | INFO | GET_NON_COMPLIANT | Retrieved 14 non-compliant emails (limit: 100)
+2026-05-15 09:52:34,556 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.005s
+2026-05-15 09:52:36,848 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-15 09:52:36,855 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-15 09:52:36,855 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.006s
+2026-05-20 07:12:55,108 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:12:55,115 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.007s
+2026-05-20 07:12:58,041 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-20 07:12:58,045 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-20 07:12:58,046 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.005s
+2026-05-20 07:13:00,089 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-20 07:13:00,092 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-20 07:13:00,092 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.003s
+2026-05-20 07:13:06,616 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:13:06,618 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-20 07:13:08,518 | INFO | REQUEST | 127.0.0.1 | POST /analyze/csv
+2026-05-20 07:13:08,520 | INFO | CSV_UPLOAD | Received CSV upload: mails.csv
+2026-05-20 07:13:08,521 | INFO | CSV_UPLOAD | Queued background processing for mails.csv
+2026-05-20 07:13:08,521 | INFO | RESPONSE | 127.0.0.1 | POST /analyze/csv | Status: 200 | Duration: 0.003s
+2026-05-20 07:13:08,525 | INFO | CSV_BG | Starting background processing of 15 emails from CSV
+2026-05-20 07:13:20,054 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:13:20,057 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:13:21,394 | INFO | CSV_BG | Email 1 stored in non_compliant | Score: 7.93
+2026-05-20 07:13:21,396 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 1.340s
+2026-05-20 07:13:28,872 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:13:28,875 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-20 07:13:28,876 | INFO | CSV_BG | Email 2 discarded (compliant)
+2026-05-20 07:13:28,878 | INFO | GET_NON_COMPLIANT | Retrieved 1 non-compliant emails (limit: 100)
+2026-05-20 07:13:35,917 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:13:35,920 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 7.047s
+2026-05-20 07:13:35,920 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:13:36,285 | INFO | CSV_BG | Email 3 stored in non_compliant | Score: 7.92
+2026-05-20 07:13:36,286 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.366s
+2026-05-20 07:13:44,616 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:13:44,619 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:13:44,984 | INFO | CSV_BG | Email 4 stored in non_compliant | Score: 8.56
+2026-05-20 07:13:44,985 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.366s
+2026-05-20 07:13:53,126 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:13:53,128 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-20 07:13:53,164 | INFO | GET_NON_COMPLIANT | Retrieved 3 non-compliant emails (limit: 100)
+2026-05-20 07:13:53,479 | INFO | CSV_BG | Email 5 stored in non_compliant | Score: 7.875
+2026-05-20 07:13:53,481 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.353s
+2026-05-20 07:14:04,061 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:14:04,064 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-20 07:14:04,092 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-20 07:14:04,376 | INFO | CSV_BG | Email 6 stored in non_compliant | Score: 7.9
+2026-05-20 07:14:04,377 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.314s
+2026-05-20 07:14:11,620 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:14:11,883 | INFO | CSV_BG | Email 7 stored in non_compliant | Score: 7.81
+2026-05-20 07:14:19,391 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:14:19,681 | INFO | CSV_BG | Email 8 stored in non_compliant | Score: 6.875
+2026-05-20 07:14:27,796 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:14:28,072 | INFO | CSV_BG | Email 9 stored in non_compliant | Score: 6.95
+2026-05-20 07:14:34,245 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:14:34,533 | INFO | CSV_BG | Email 10 stored in non_compliant | Score: 7.95
+2026-05-20 07:14:49,995 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:14:50,323 | INFO | CSV_BG | Email 11 stored in non_compliant | Score: 8.58
+2026-05-20 07:15:02,428 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:15:02,799 | INFO | CSV_BG | Email 12 stored in non_compliant | Score: 6.91
+2026-05-20 07:15:08,743 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:15:09,024 | INFO | CSV_BG | Email 13 stored in non_compliant | Score: 8.58
+2026-05-20 07:15:16,580 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:15:16,882 | INFO | CSV_BG | Email 14 stored in non_compliant | Score: 7.81
+2026-05-20 07:15:25,556 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:15:25,831 | INFO | CSV_BG | Email 15 stored in non_compliant | Score: 8.58
+2026-05-20 07:15:25,831 | INFO | CSV_BG | Completed processing 15/15 emails from CSV
+2026-05-20 07:15:56,391 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:15:56,393 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-20 07:15:58,518 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-20 07:15:58,522 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-20 07:15:58,522 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.004s
+2026-05-20 07:16:00,575 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-20 07:16:00,578 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-20 07:16:00,578 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.003s
+2026-05-20 07:19:37,636 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:19:37,639 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-20 07:19:39,749 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-20 07:19:39,751 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-20 07:19:39,751 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.002s
+2026-05-20 07:19:41,797 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-20 07:19:41,799 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-20 07:19:41,799 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.002s
+2026-05-20 07:19:55,073 | INFO | REQUEST | 127.0.0.1 | POST /analyze/csv
+2026-05-20 07:19:55,075 | INFO | CSV_UPLOAD | Received CSV upload: mails.csv
+2026-05-20 07:19:55,076 | INFO | CSV_UPLOAD | Queued background processing for mails.csv
+2026-05-20 07:19:55,076 | INFO | RESPONSE | 127.0.0.1 | POST /analyze/csv | Status: 200 | Duration: 0.003s
+2026-05-20 07:19:55,080 | INFO | CSV_BG | Starting background processing of 15 emails from CSV
+2026-05-20 07:20:03,541 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:20:03,544 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:20:04,090 | INFO | CSV_BG | Email 1 stored in non_compliant | Score: 8.58
+2026-05-20 07:20:04,093 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.549s
+2026-05-20 07:20:21,725 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:20:21,728 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:20:21,729 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-20 07:20:21,731 | INFO | CSV_BG | Email 2 discarded (compliant)
+2026-05-20 07:20:21,732 | INFO | GET_NON_COMPLIANT | Retrieved 1 non-compliant emails (limit: 100)
+2026-05-20 07:20:21,733 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.005s
+2026-05-20 07:20:28,054 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:20:28,056 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 6.328s
+2026-05-20 07:20:28,512 | INFO | CSV_BG | Email 3 stored in non_compliant | Score: 7.83
+2026-05-20 07:20:36,125 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:20:36,128 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:20:36,440 | INFO | CSV_BG | Email 4 stored in non_compliant | Score: 8.56
+2026-05-20 07:20:36,442 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.314s
+2026-05-20 07:20:49,209 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:20:49,210 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-20 07:20:49,238 | INFO | GET_NON_COMPLIANT | Retrieved 3 non-compliant emails (limit: 100)
+2026-05-20 07:20:49,515 | INFO | CSV_BG | Email 5 stored in non_compliant | Score: 7.88
+2026-05-20 07:20:49,517 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.307s
+2026-05-20 07:20:57,655 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:20:57,657 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-20 07:20:57,659 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-20 07:20:57,978 | INFO | CSV_BG | Email 6 stored in non_compliant | Score: 7.6
+2026-05-20 07:20:57,980 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.323s
+2026-05-20 07:21:07,774 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:21:08,041 | INFO | CSV_BG | Email 7 stored in non_compliant | Score: 7.975
+2026-05-20 07:21:21,644 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:21:21,911 | INFO | CSV_BG | Email 8 stored in non_compliant | Score: 6.875
+2026-05-20 07:21:29,186 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:21:29,532 | INFO | CSV_BG | Email 9 stored in non_compliant | Score: 7.98
+2026-05-20 07:21:36,728 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:21:36,996 | INFO | CSV_BG | Email 10 stored in non_compliant | Score: 7.93
+2026-05-20 07:21:45,547 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:21:45,836 | INFO | CSV_BG | Email 11 stored in non_compliant | Score: 7.92
+2026-05-20 07:21:55,117 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:21:55,434 | INFO | CSV_BG | Email 12 stored in non_compliant | Score: 6.93
+2026-05-20 07:22:02,063 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:22:02,065 | INFO | CSV_BG | Email 13 discarded (compliant)
+2026-05-20 07:22:17,905 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:22:21,736 | INFO | CSV_BG | Email 14 stored in non_compliant | Score: 7.81
+2026-05-20 07:22:30,368 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:22:30,638 | INFO | CSV_BG | Email 15 stored in non_compliant | Score: 7.88
+2026-05-20 07:22:30,640 | INFO | CSV_BG | Completed processing 15/15 emails from CSV
+2026-05-20 07:24:29,910 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:24:29,912 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-20 07:24:32,111 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:24:32,115 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.004s
+2026-05-20 07:24:34,207 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-20 07:24:34,211 | INFO | GET_NON_COMPLIANT | Retrieved 13 non-compliant emails (limit: 100)
+2026-05-20 07:24:34,211 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.004s
+2026-05-20 07:24:36,401 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-20 07:24:36,403 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-20 07:24:36,404 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.003s
+2026-05-20 07:49:07,569 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:49:07,572 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.003s
+2026-05-20 07:49:09,637 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-20 07:49:09,651 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-20 07:49:09,665 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.028s
+2026-05-20 07:49:11,787 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-20 07:49:11,791 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-20 07:49:11,791 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.005s
+2026-05-20 07:49:13,404 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:49:13,406 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-20 07:49:15,479 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-20 07:49:15,482 | INFO | GET_NON_COMPLIANT | Retrieved 0 non-compliant emails (limit: 100)
+2026-05-20 07:49:15,483 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.003s
+2026-05-20 07:49:16,695 | INFO | REQUEST | 127.0.0.1 | POST /analyze/csv
+2026-05-20 07:49:16,697 | INFO | CSV_UPLOAD | Received CSV upload: mails_data.csv
+2026-05-20 07:49:16,698 | INFO | CSV_UPLOAD | Queued background processing for mails_data.csv
+2026-05-20 07:49:16,699 | INFO | RESPONSE | 127.0.0.1 | POST /analyze/csv | Status: 200 | Duration: 0.003s
+2026-05-20 07:49:16,701 | INFO | CSV_BG | Starting background processing of 4 emails from CSV
+2026-05-20 07:49:26,237 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:49:26,239 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:49:26,738 | INFO | CSV_BG | Email 1 stored in non_compliant | Score: 6.95
+2026-05-20 07:49:26,739 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.501s
+2026-05-20 07:49:32,810 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:49:32,815 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-20 07:49:32,881 | INFO | GET_NON_COMPLIANT | Retrieved 1 non-compliant emails (limit: 100)
+2026-05-20 07:49:33,473 | INFO | CSV_BG | Email 2 stored in non_compliant | Score: 6.88
+2026-05-20 07:49:33,475 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.660s
+2026-05-20 07:49:40,478 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:49:40,481 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-20 07:49:40,482 | INFO | CSV_BG | Email 3 discarded (compliant)
+2026-05-20 07:49:40,483 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-20 07:49:44,005 | INFO | HTTP Request: POST https://dev-openai-service-02.openai.azure.com/openai/deployments/aprbatch1-de024833-f245-4323-9ffa-e0482c8e1ec8/chat/completions?api-version=2025-01-01-preview "HTTP/1.1 200 OK"
+2026-05-20 07:49:44,007 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 3.527s
+2026-05-20 07:49:44,008 | INFO | CSV_BG | Email 4 discarded (compliant)
+2026-05-20 07:49:44,009 | INFO | CSV_BG | Completed processing 4/4 emails from CSV
+2026-05-20 07:49:53,725 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:49:53,728 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.003s
+2026-05-20 07:49:55,947 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:49:55,948 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.001s
+2026-05-20 07:49:58,084 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-20 07:49:58,086 | INFO | GET_NON_COMPLIANT | Retrieved 2 non-compliant emails (limit: 100)
+2026-05-20 07:49:58,087 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.003s
+2026-05-20 07:50:00,200 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-20 07:50:00,202 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-20 07:50:00,203 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.003s
+2026-05-20 07:51:03,639 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:51:03,641 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-20 07:51:05,866 | INFO | REQUEST | 127.0.0.1 | GET /matrix
+2026-05-20 07:51:05,868 | INFO | RESPONSE | 127.0.0.1 | GET /matrix | Status: 200 | Duration: 0.002s
+2026-05-20 07:51:07,952 | INFO | REQUEST | 127.0.0.1 | GET /emails/non-compliant
+2026-05-20 07:51:07,955 | INFO | GET_NON_COMPLIANT | Retrieved 2 non-compliant emails (limit: 100)
+2026-05-20 07:51:07,955 | INFO | RESPONSE | 127.0.0.1 | GET /emails/non-compliant | Status: 200 | Duration: 0.003s
+2026-05-20 07:51:10,023 | INFO | REQUEST | 127.0.0.1 | GET /emails/human-approval
+2026-05-20 07:51:10,024 | INFO | GET_HUMAN_APPROVAL | Retrieved 0 human approval emails (limit: 100)
+2026-05-20 07:51:10,026 | INFO | RESPONSE | 127.0.0.1 | GET /emails/human-approval | Status: 200 | Duration: 0.003s
